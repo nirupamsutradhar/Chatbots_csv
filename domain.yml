@@ -1,0 +1,66 @@
+intents:
+  - greet
+  - CourseDetails
+  - CommunicationMode
+  - CommunicationDetails
+  - studentname
+
+entities:
+  - subject
+  - Communication
+  - comndetails
+  - name
+
+actions:
+  - action_greet_user
+  - action_communication_mode
+  - action_save_details
+
+
+slots:
+  subject:
+    type: categorical
+    values:
+      - Certificate - 6 months
+      - O-Level (Diploma) - 12 months
+      - A-level (Advanced) - 18 months
+      - Python/Data Science/Java/C++ - 12 months
+
+  Communication:
+    type: categorical
+    values:
+      - Email
+      - Phone
+  
+  comndetails:
+    type: unfeaturized
+  name:
+    type: unfeaturized
+  
+forms:
+  - detailform
+
+responses:
+  utter_greet:
+  - text: "Hey! How are you?"
+  utter_course_details:
+  - text: "Thanks for letting us know your interest in {subject} 😃"
+  utter_communication_means:
+  - text: "Please let us know your preferred means of communication to share the details of the courses."
+  utter_communication_mode:
+  - text: "Please share your {Communication} and I'll send more details of the course to you"
+  utter_course_eligibility:
+  - text: "This includes the course eligibility, benefits, and fee structure." 
+  utter_ask_name:
+  - text: "And your name?"
+  - text: "And your name please."
+  utter_wrong_email:
+  - text: "Please enter valid email"
+  utter_submit:
+  - text: "Thanks {name} for sharing the details. I will contact you soon. 🙂"
+  utter_thanks:
+  - text: "Have a good day 👋 "
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
